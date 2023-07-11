@@ -118,7 +118,7 @@ class KylinDialect(default.DefaultDialect):
 
     def has_table(self, connection, table_name, schema=None):
         # disable check table exists
-        return False
+        return table_name in self.get_table_names(connection, schema)
 
     def has_sequence(self, connection, sequence_name, schema=None):
         return False
